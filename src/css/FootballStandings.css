@@ -1,0 +1,38 @@
+.football-standings-display {
+    background-size: cover;
+    background-color: lightblue;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.football-standings-display-box {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.football-standings-input-label {
+    margin-right: 20px;
+}
+
+.football-standings-data {
+    background-color: rgb(192, 222, 232);
+    padding: 40px;
+    border-radius: 20px;
+    margin-top: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    max-width: fit-content;
+}
+
+.football-standings-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+}

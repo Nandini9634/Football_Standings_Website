@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Endpoints, Standings } from "../constant/model";
+import "../css/FootballStandings.css";
+import bgImage from "../assets/bg.webp";
 
 export default function FootballStandings() {
   const [formData, setFormData] = useState({
@@ -98,22 +100,15 @@ export default function FootballStandings() {
 
   return (
     <div
+      className="football-standings-display"
       style={{
-        background: `url(https://tinyurl.com/mr3dz75s)`,
-        backgroundSize: "cover",
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        color: "black",
+        background: `url(${bgImage})`,
       }}
     >
       <div
+        className="football-standings-display-box"
         style={{
           backgroundColor: boxColor,
-          padding: "20px",
-          borderRadius: "10px",
         }}
       >
         <h2>Hello User! Please enter the following details.</h2>
@@ -122,7 +117,12 @@ export default function FootballStandings() {
             backgroundColor: fieldErrors.countryName ? "red" : "transparent",
           }}
         >
-          <label htmlFor="countryName" style={{ marginRight: "20px" }}>Country Name</label>
+          <label
+            htmlFor="countryName"
+            className="football-standings-input-label"
+          >
+            Country Name
+          </label>
           <input
             type="text"
             name="countryName"
@@ -137,7 +137,12 @@ export default function FootballStandings() {
             backgroundColor: fieldErrors.leagueName ? "red" : "transparent",
           }}
         >
-          <label htmlFor="leagueName" style={{ marginRight: "20px" }}>League Name</label>
+          <label
+            htmlFor="leagueName"
+            className="football-standings-input-label"
+          >
+            League Name
+          </label>
           <input
             type="text"
             name="leagueName"
@@ -152,7 +157,9 @@ export default function FootballStandings() {
             backgroundColor: fieldErrors.teamName ? "red" : "transparent",
           }}
         >
-          <label htmlFor="teamName" style={{ marginRight: "20px" }}>Team Name</label>
+          <label htmlFor="teamName" className="football-standings-input-label">
+            Team Name
+          </label>
           <input
             type="text"
             name="teamName"
@@ -170,23 +177,13 @@ export default function FootballStandings() {
       </div>
       <div>
         {isDataAvailable && (
-          <div
-            style={{
-              backgroundColor: "lightblue",
-              padding: "50px",
-              borderRadius: "20px",
-              marginTop: "20px",
-              maxHeight: "300px",
-              overflowY: "auto",
-              maxWidth: "700px",
-            }}
-          >
+          <div className="football-standings-data">
             <h2>Football Data Table</h2>
             <table>
               <tbody>
                 {Object.entries(Standings).map(([key, value]) => (
                   <tr>
-                    <td>{key}</td>
+                    <td>{key}</td> :
                     <td>{value}</td>
                   </tr>
                 ))}
@@ -196,17 +193,8 @@ export default function FootballStandings() {
         )}
       </div>
 
-      <div
-        style={{
-          position: "absolute",
-          top: "20px",
-          right: "20px",
-          display: "flex",
-          alignItems: "center",
-          color: "white",
-        }}
-      >
-        <label style={{ marginRight: "20px" }}>Client Mode</label>
+      <div className="football-standings-button">
+        <label className="football-standings-input-label">Client Mode</label>
         <button onClick={setClientMode}>
           {isClientOffline ? "Offline" : "Online"}
         </button>
